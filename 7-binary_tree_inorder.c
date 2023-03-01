@@ -12,6 +12,6 @@ void binary_tree_ineorder(const binary_tree_t *tree, void (*func)(int))
 		return;
 
 	binary_tree_inorder(tree->left, func);
-	func(tree->);
+	func(tree->n);
 	binary_tree_inorder(tree->right, func);
 }
