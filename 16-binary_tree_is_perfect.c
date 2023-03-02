@@ -1,8 +1,24 @@
-#include <math.h>
 #include "binary_trees.h"
 
 size_t _tree_height(const binary_tree_t *tree);
 size_t tree_size(const binary_tree_t *tree);
+
+/**
+ * _pow - ...
+ * @x: ...
+ * @y: ...
+ *
+ * Return: ...
+ */
+size_t _pow(size_t x, size_t y)
+{
+	size_t total = x, i;
+
+	for (i = 0; i < y; ++i)
+		total = total * x;
+
+	return (total);
+}
 
 /**
  * binary_tree_is_perfect - checks if a binary tree is perfect
@@ -19,7 +35,7 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 
 	size = tree_size(tree);
 	height = _tree_height(tree) + 1;
-	if (size == pow(2, height) - 1)
+	if (size == _pow(2, height) - 1)
 		return (1);
 
 	return (0);
