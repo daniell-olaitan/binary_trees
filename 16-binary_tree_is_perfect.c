@@ -14,7 +14,7 @@ size_t _pow(size_t x, size_t y)
 {
 	size_t total = x, i;
 
-	for (i = 0; i < y; ++i)
+	for (i = 1; i < y; ++i)
 		total = total * x;
 
 	return (total);
