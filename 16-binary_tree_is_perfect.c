@@ -12,8 +12,9 @@ size_t tree_size(const binary_tree_t *tree);
  */
 size_t _pow(size_t x, size_t y)
 {
-	size_t total = x, i;
+	size_t total, i;
 
+	total = x;
 	for (i = 1; i < y; ++i)
 		total = total * x;
 
@@ -52,7 +53,7 @@ size_t _tree_height(const binary_tree_t *tree)
 	size_t left, right;
 
 	if (tree == NULL ||
-            (tree->left == NULL && tree->right == NULL))
+	    (tree->left == NULL && tree->right == NULL))
 		return (0);
 
 	left = _tree_height(tree->left);
