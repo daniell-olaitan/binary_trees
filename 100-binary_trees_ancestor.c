@@ -1,7 +1,6 @@
 #include "binary_trees.h"
 
 long int node_depth(const binary_tree_t *tree);
-typedef binary_tree_t b_t_t;
 
 /**
  * binary_trees_ancestor - finds the lowest common ancestor of two nodes
