@@ -22,13 +22,13 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tr
 	l = d1 > d2 ? d1 - d2 : d2 - d1;
 	if (d1 > d2)
 	{
-		n1 = first;
-		n2 = second;
+		n1 = (binary_tree_t *)first;
+		n2 = (binary_tree_t *)second;
 	}
 	else
 	{
-		n1 = second;
-		n2 = first;
+		n1 = (binary_tree_t *)second;
+		n2 = (binary_tree_t *)first;
 	}
 
 	for (i = l; i > 0; --i)
