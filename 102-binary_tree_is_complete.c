@@ -52,17 +52,16 @@ void enque_all(queue_t **h, const binary_tree_t *n)
 		return;
 
 	_enque(&que, n);
-        while (que != NULL)
-        {
-                tmp = _deque(&que);
+	while (que != NULL)
+	{
+		mp = _deque(&que);
 		_enque(h, tmp);
 		if (tmp)
 		{
 			_enque(&que, tmp->left);
 			_enque(&que, tmp->right);
 		}
-        }
-
+	}
 }
 
 /**
