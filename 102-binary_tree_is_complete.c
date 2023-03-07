@@ -54,7 +54,7 @@ void enque_all(queue_t **h, const binary_tree_t *n)
 	_enque(&que, n);
 	while (que != NULL)
 	{
-		mp = _deque(&que);
+		tmp = _deque(&que);
 		_enque(h, tmp);
 		if (tmp)
 		{
