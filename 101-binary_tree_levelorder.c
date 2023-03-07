@@ -75,12 +75,15 @@ void enque(queue_t **h, const binary_tree_t *n)
 binary_tree_t *deque(queue_t **h)
 {
 	binary_tree_t *n;
+	queue_t *tmp;
 
 	if (h == NULL || *h == NULL)
 		return (NULL);
 
 	n = (*h)->n;
-	*h = (*h)->next;
+	tmp = (*h)->next;
+	free(*h);
+	*h = tmp;
 
 	return (n);
 }
