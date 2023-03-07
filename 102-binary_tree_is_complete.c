@@ -3,6 +3,7 @@
 void enque_all(queue_t **h, const binary_tree_t *n);
 void _enque(queue_t **h, const binary_tree_t *n);
 binary_tree_t *_deque(queue_t **h);
+bool que_is_empty(queue_t *que);
 
 /**
  * binary_tree_is_complete - checks if a binary tree is complete
@@ -12,6 +13,7 @@ binary_tree_t *_deque(queue_t **h);
  */
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
+	int ret;
 	queue_t *head = NULL;
 	binary_tree_t *tmp;
 
@@ -19,17 +21,20 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 		return (0);
 
 	enque_all(&head, tree);
-	while (head)
+	while (1)
 	{
 		tmp = _deque(&head);
-		if (tmp == NULL && head->next)
+		if (tmp == NULL)
 		{
+			if (que_is_empty(head))
+				ret = 1;
+			else
+				ret = 0;
+
 			free_que(&head);
-			return (0);
+			return (ret);
 		}
 	}
-
-	return (1);
 }
 
 /**
@@ -118,6 +123,25 @@ binary_tree_t *_deque(queue_t **h)
 	*h = tmp;
 
 	return (n);
+}
+
+/**
+ * que_is_empty - checks if a que data are null
+ * @que: ...
+ *
+ * Return: true or false
+ */
+bool que_is_empty(queue_t *que)
+{
+	while (que != NULL)
+	{
+		if (que->n != NULL)
+			return (false);
+
+		que = que->next;
+	}
+
+	return (true);
 }
 
 /**
